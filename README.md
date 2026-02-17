@@ -77,6 +77,25 @@ dataset/
 
 Each subfolder name will be used as the label (name) for the person.
 
+## Using a Custom Dataset
+
+To train the model on your own set of people:
+
+1.  **Clear existing data**: Delete the default subfolders inside the `dataset/` directory.
+2.  **Add your images**:
+    -   Create a new folder for each person you want to recognize (e.g., `dataset/Ryan_Reynolds`, `dataset/Scarlett_Johansson`).
+    -   Place at least 10-15 clear images of that person inside their folder. Supported formats: `.jpg`, `.jpeg`, `.png`.
+3.  **Retrain the model**:
+    Run the training script to generate a new `svm_model.pkl` and `label_encoder.pkl`:
+    ```bash
+    python train_model.py
+    ```
+4.  **Restart the App**:
+    If the web app is running, stop it (Ctrl+C) and start it again to load the new model:
+    ```bash
+    python app.py
+    ```
+
 ## Project Structure
 
 -   `app.py`: Flask application entry point.
